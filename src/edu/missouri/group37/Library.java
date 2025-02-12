@@ -1,13 +1,17 @@
 package edu.missouri.group37;
 
 public class Library {
-    private Book[5] books;
+	private Book[] books = new Book[5];
     private int count = 0;
 
     /***
      *
      */
     public boolean addBook(Book book) {
+    	if (count < books.length) {
+    		books[count] = book;
+    		return true;
+    	}
         return false;
     }
 
