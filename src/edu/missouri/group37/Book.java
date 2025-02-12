@@ -9,22 +9,22 @@ public class Book {
     /***
      * Default constructor
      */
-    public Book () {
-        return null;
+    public Book() {
+        return;
     }
 
     /***
      *
      */
-    public Book (String title, String author, String ISBN, double price) {
-        return null;
+    public Book(String title, String author, String ISBN, double price) {
+        return;
     }
 
     /***
      * Copy constructor
      */
-    public Book (Book otherBook) {
-        return null;
+    public Book(Book otherBook) {
+        return;
     }
 
     /***

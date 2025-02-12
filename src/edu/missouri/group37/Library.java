@@ -1,7 +1,7 @@
 package edu.missouri.group37;
 
 public class Library {
-    private Book[5] books;
+    private Book[] books = new Book[5];
     private int count = 0;
 
     /***
