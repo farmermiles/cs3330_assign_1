@@ -17,70 +17,102 @@ public class Book {
      *
      */
     public Book(String title, String author, String ISBN, double price) {
+    	this.title = title;
+    	this.author = author;
+    	this.ISBN = ISBN;
+    	this.price = price;
         return;
     }
 
     /***
      * Copy constructor
      */
-    public Book(Book otherBook) {
-        return;
+    public boolean Book(Book otherBook) {
+    	if (!otherBook) {
+    		return false;
+    	}
+    	title = otherBook.title;
+    	author = otherBook.author;
+    	ISBN = otherBook.ISBN;
+    	price = otherBook.price;
+    	
+        return true;
     }
 
     /***
      *
      */
     public String getTitle() {
-        return "";
+    	
+        return title;
     }
 
     /***
      *
      */
-    public void setTitle(String title) {
-        return;
+    public boolean setTitle(String title) {
+    	if (!title) {
+    		return false;
+    	}
+    	this.title = title;
+        return true;
     }
 
     /***
      *
      */
     public String getAuthor() {
-        return "";
+        return author;
     }
 
     /***
      *
      */
-    public void setAuthor(String author) {
-        return;
+    public boolean setAuthor(String author) {
+    	if (!author) {
+    		return false;
+    	}
+    	author = author;
+        return true;
     }
 
     /***
      *
      */
     public String getISBN() {
-        return "";
+        return ISBN;
     }
 
     /***
      *
      */
-    public void setISBN(String ISBN) {
-        return;
+    public boolean setISBN(String ISBN) {
+    	if (!ISBN) {
+    		return false;
+    	}
+    	ISBN = ISBN;
+        return true;
     }
 
     /***
      *
      */
     public double getPrice() {
-        return -1.0;
+    	if (!price){
+    		return -1.0;
+    	}
+        return price;
     }
 
     /***
      *
      */
-    public void setPrice(double price) {
-        return;
+    public boolean setPrice(double price) {
+    	if (!price) {
+    		return false;
+    	}
+    	price = price;
+        return true;
     }
 
     /***
@@ -93,7 +125,10 @@ public class Book {
     /***
      *
      */
-    public boolean equals(Object obj) {
+    public boolean equals(Book book) {
+    	if (this.author == book.author & this.title == book.title & this.ISBN == book.ISBN & this.price == book.price){
+    		return true;
+    	}
         return false;
     }
 }
