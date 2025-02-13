@@ -33,8 +33,8 @@ public class LibraryApp {
         
 
         Book book6 = new Book(book4);
-        book5.setISBN("3427");
-        book5.setTitle("Should not be in the library (book 6)");
+        book6.setISBN("3427");
+        book6.setTitle("Should not be in the library (book 6)");
         
         library.addBook(book4);
         library.addBook(book5);
@@ -43,26 +43,26 @@ public class LibraryApp {
         System.out.println("Did the library reject the sixth book?: " + (sixthBookAdditionResult ? "No" : "Yes"));
         
         
+        System.out.println();
         Book searchForISBNResult = library.searchByISBN(ISBNToSearchFor);
         
         if (searchForISBNResult == null) {
         	System.out.println("No book was found!");
         } else {
-        	System.out.println("Book search result for ISBN " + ISBNToSearchFor + ": ");
-        	System.out.println(searchForISBNResult.toString());
+        	System.out.println("Book search result for ISBN " + ISBNToSearchFor + ": " + searchForISBNResult.toString());
         	
         	boolean titleMatches = searchForISBNResult.getTitle().equals(titleForSearchedBook);
         	System.out.println("Retrieved book title matches expected title?: " + (titleMatches ? "Yes" : "No"));
         }
         
-        
+        System.out.println();
         boolean removeValidBookResult = library.removeBook(book1);
         System.out.println("Attempt to remove a book that exists in the library result: " + (removeValidBookResult ? "Success" : "Failure"));
         
         boolean removeInvalidBookResult = library.removeBook(book6);
-        System.out.println("Attempt to remove a book that is not in the library result (failure expected): " + (removeInvalidBookResult ? "Success" : "Success"));
+        System.out.println("Attempt to remove a book that is NOT in the library result (failure expected): " + (removeInvalidBookResult ? "Success" : "Failure"));
         
-        
+        System.out.println();
         System.out.println("List all books in the library:");
         library.displayBooks();
     }
