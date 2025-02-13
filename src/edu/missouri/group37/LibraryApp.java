@@ -8,6 +8,8 @@ public class LibraryApp {
         
         Library library = new Library();
         
+        System.out.println("Creating and adding books to the library.");
+        
         //String title, String author, String ISBN, double price
         Book book1 = new Book("Book 1 Title", "Me", "1234", 20.5);
         
@@ -38,32 +40,37 @@ public class LibraryApp {
         
         library.addBook(book4);
         library.addBook(book5);
+        
+        
+        System.out.println("\nAttempting to add one extra book to the library beyond its capacity.");
         boolean sixthBookAdditionResult = library.addBook(book6);
        
         System.out.println("Did the library reject the sixth book?: " + (sixthBookAdditionResult ? "No" : "Yes"));
         
         
-        System.out.println();
+        System.out.println("\nSearching for book with ISBN: " + ISBNToSearchFor);
         Book searchForISBNResult = library.searchByISBN(ISBNToSearchFor);
         
         if (searchForISBNResult == null) {
         	System.out.println("No book was found!");
         } else {
-        	System.out.println("Book search result for ISBN " + ISBNToSearchFor + ": " + searchForISBNResult.toString());
+        	System.out.println("Book found: " + searchForISBNResult.toString());
         	
         	boolean titleMatches = searchForISBNResult.getTitle().equals(titleForSearchedBook);
         	System.out.println("Retrieved book title matches expected title?: " + (titleMatches ? "Yes" : "No"));
         }
         
-        System.out.println();
+        System.out.println("\nList all current books in the library:");
+        library.displayBooks();
+        
         boolean removeValidBookResult = library.removeBook(book1);
-        System.out.println("Attempt to remove a book that exists in the library result: " + (removeValidBookResult ? "Success" : "Failure"));
+        System.out.println("\nAttempt to remove a book that exists in the library result: " + (removeValidBookResult ? "Success" : "Failure"));
         
         boolean removeInvalidBookResult = library.removeBook(book6);
         System.out.println("Attempt to remove a book that is NOT in the library result (failure expected): " + (removeInvalidBookResult ? "Success" : "Failure"));
         
-        System.out.println();
-        System.out.println("List all books in the library:");
+        
+        System.out.println("\nList all books in the library:");
         library.displayBooks();
     }
 }

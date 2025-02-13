@@ -131,7 +131,7 @@ public class Book {
      */
     @Override
     public String toString() {
-        return String.format("Title: %s, Author: %s, ISBN: %s, Price: %g", this.title, this.author, this.ISBN, this.price);
+        return String.format("%s by %s (ISBN: %s, $%.2f)", this.title, this.author, this.ISBN, this.price);
     }
 
     /**
